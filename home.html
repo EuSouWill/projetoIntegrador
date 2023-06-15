@@ -18,22 +18,19 @@
     <nav class="sidebar close">
         <header>
             <div class="image-text">
-                <span class="image">
-                    <!--<img src="logo.png" alt="">-->
-                </span>
+                
+                    <img class="round-image" src="/imagem/perfil.jpg" alt="Imagem Redonda">
+                
 
                 <div class="text logo-text">
                     <span class="name">Software</span>
                     <span class="profession">SoftFarma</span>
                 </div>
             </div>
-
             <i class='bx bx-chevron-right toggle'></i>
         </header>
-
         <div class="menu-bar">
             <div class="menu">
-
                 <li class="search-box">
                     <i class='bx bx-search icon'></i>
                     <input type="text" placeholder="Buscar....">
@@ -67,8 +64,7 @@
                             <span class="text nav-text">Disciplinas</span>
                         </a>
                     </li>
-
-                   
+                  
 
                     <li class="nav-link">
                         <a href="#">
@@ -78,13 +74,18 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bookmark icon' ></i>
-                            <span class="text nav-text">Notas</span>
+                        <a href="escrituracao.html">
+                            <i class='bx bxs-pencil icon' ></i> 
+                            <span class="text nav-text">escrituração</span>
                         </a>
-                    </li>
-
-                
+                    </li>  
+                    
+                    <li class="nav-link">
+                        <a href="/estoque.html">
+                            <i class='bx bx-detail icon' ></i>
+                            <span class="text nav-text">Estoque</span>
+                        </a>
+                    </li>  
 
                  
                 </ul>
@@ -118,6 +119,12 @@
     <section class="home">
         <div class="text">Sistema de Farmácia</div>
     </section>
+
+    <footer>
+        <div class="footer-content">
+          <p>&copy; 2023 SoftFarma. Todos os direitos reservados.</p>
+        </div>
+      </footer>
 
     <script>
         const body = document.querySelector('body'),
@@ -164,6 +171,5 @@ if(login == "admin" && senha == "admin"){
 
 }
     </script>
-
 </body>
 </html>

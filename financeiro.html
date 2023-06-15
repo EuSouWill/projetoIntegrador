@@ -1,66 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-th, td {
-  text-align: left;
-  padding: 16px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-</style>
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" type="text/css" href="financeiro.css">
 </head>
 <body>
+  <header>
+    <button class="back-button" onclick="goBack()">Voltar</button>
 
-<h2>Tabela Financeiro</h2> 
-<p>For zebra-striped tables, use the nth-child() selector and add a background-color to all even (or odd) table rows:</p>
+  </header>
+    <div class="container">
+        <h1>Controle Financeiro</h1>
+        
+        <div class="transaction-form">
+            <h2>Nova Transação</h2>
+            <form>
+                <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <input type="text" id="description" placeholder="Digite a descrição" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Valor:</label>
+                    <input type="number" id="amount" placeholder="Digite o valor" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Tipo:</label>
+                    <select id="type" required>
+                        <option value="income">Receita</option>
+                        <option value="expense">Despesa</option>
+                    </select>
+                </div>
+                <button type="submit">Adicionar Transação</button>
+            </form>
+        </div>
+        
+        <div class="transaction-list">
+            <h2>Histórico de Transações</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linhas de transações serão adicionadas aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+      function goBack() {
+  window.history.back();
+}
 
-<table>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Points</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <tr>
-    <td>Adam</td>
-    <td>Johnson</td>
-    <td>67</td>
-  </tr>
-</table>
-
+    </script>
 </body>
-<script>
-        function logar(){
-
-var login = document.getElementById('login').value;
-var senha = document.getElementById('senha').value;
-
-if(login == "admin" && senha == "admin"){
-    alert('Sucesso');
-    location.href = "/home.html";
-}else{
-    alert('Usuario ou senha incorretos');
-}}
-
-</script>
 </html>

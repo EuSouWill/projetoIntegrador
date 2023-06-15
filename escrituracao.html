@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Escrituração de Receita de Medicamento</title>
+    <link rel="stylesheet" type="text/css" href="escrituracao.css">
+</head>
+<body>
+    <header>
+        <button class="back-button" onclick="goBack()">Voltar</button>
+
+    </header>
+    <div class="container">
+        <h1>Escrituração de Receita de Medicamento</h1>
+        
+        <div class="prescription-form">
+            <h2>Nova Receita</h2>
+            <form>
+                <div class="form-group">
+                    <label for="patient-name">Nome do Paciente:</label>
+                    <input type="text" id="patient-name" placeholder="Digite o nome do paciente" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctor-name">Nome do Médico:</label>
+                    <input type="text" id="doctor-name" placeholder="Digite o nome do médico" required>
+                </div>
+                <div class="form-group">
+                    <label for="medications">Medicamentos:</label>
+                    <textarea id="medications" placeholder="Digite os medicamentos prescritos" required></textarea>
+                </div>
+                <button type="submit">Adicionar Receita</button>
+            </form>
+        </div>
+        
+        <div class="prescription-list">
+            <h2>Histórico de Receitas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paciente</th>
+                        <th>Médico</th>
+                        <th>Medicamentos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linhas de receitas serão adicionadas aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+          <p>&copy; 2023 SoftFarma. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+      <script>
+        function goBack() {
+  window.history.back();
+}
+
+      </script>
+</body>
+</html>
