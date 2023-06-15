@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    h1,a{
+        text-decoration: none;
+        color: #f1f1f1;
+    }
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      
+
+
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+      
+    }
+    
+    .box {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin: 10px;
+      padding: 20px;
+      text-align: center;
+      width: 20%;
+      margin-top: 1%;
+      margin-left: 1%;
+      display: inline-block;
+    
+      
+      
+      
+     
+      
+    }
+
+    .box1 {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin: 10px;
+      padding: 20px;
+      text-align: center;
+      width: 250px;
+     
+      
+      
+     
+      
+    }
+ 
+    
+    .box h2 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+    
+    .box p {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/home.html">
+        <h1>Dashboard</h1>
+    </a>
+    
+  </header>
+  <div class="container">
+    <div class="box1">
+      <h2>Users</h2>
+      <p>1000</p>
+    </div>
+    <div class="box1">
+      <h2>Sales</h2>
+      <p>$10000</p>
+    </div>
+    <div class="box1">
+      <h2>Profit</h2>
+      <p>$5000</p>
+    </div>
+    <div class="box1">
+      <h2>Expenses</h2>
+      <p>$2500</p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Vendas</h2>
+    <p>$10000</p>
+    <canvas id="salesChart"></canvas>
+    <canvas id="salesPieChart"></canvas>
+ </div>
+ <div class="box">
+    <h2>Lucros</h2>
+    <p>$5000</p>
+    <canvas id="profitChart"></canvas>
+    <canvas id="profitPieChart"></canvas>
+ </div>
+ <div class="box">
+    <h2>teste1</h2>
+    <p>$6000</p>
+    <canvas id="profitChart"></canvas>
+    <canvas id="profitPieChart"></canvas>
+ </div>
+ <div class="box">
+    <h2>teste2</h2>
+    <p>$7000</p>
+    <canvas id="profitChart"></canvas>
+    <canvas id="profitPieChart"></canvas>
+ </div>
+  <script>
+    
+    // inserir o código JavaScript aqui, se necessário
+    var salesPieChart = new Chart(document.getElementById("salesPieChart"), {
+   type: 'pie',
+   data: {
+      labels: ["Sales", "Profit",],
+      datasets: [{
+         data: [10000, 5000],
+         backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)'
+         ],
+         borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)'
+         ],
+         borderWidth: 1
+      }]
+   },
+   options: {
+      legend: {
+         position: 'bottom'
+      }
+   }
+});
+
+var profitPieChart = new Chart(document.getElementById("profitPieChart"), {
+   type: 'pie',
+   data: {
+      labels: ["Profit", "Expenses"],
+      datasets: [{
+         data: [5000, 2500],
+         backgroundColor: [
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 99, 132, 0.2)'
+         ],
+         borderColor: [
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 99, 132, 1)'
+         ],
+         borderWidth: 1
+      }]
+   },
+   options: {
+      legend: {
+         position: 'bottom'
+      }
+   }
+});
+    
+  </script>
+</body>
+</html>

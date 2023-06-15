@@ -23,8 +23,8 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">Dashboard</span>
-                    <span class="profession">Projeto Integrador</span>
+                    <span class="name">Software</span>
+                    <span class="profession">SoftFarma</span>
                 </div>
             </div>
 
@@ -36,7 +36,7 @@
 
                 <li class="search-box">
                     <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
+                    <input type="text" placeholder="Buscar....">
                 </li>
 
                 <ul class="menu-links">
@@ -48,9 +48,9 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/financeiro.html">
                             <i class='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span class="text nav-text">Financeiro</span>
+                            <span class="text nav-text" >Financeiro</span>
                         </a>
                     </li>
 
@@ -62,7 +62,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/dash2.html">
                             <i class='bx bx-pie-chart-alt icon' ></i>
                             <span class="text nav-text">Disciplinas</span>
                         </a>
@@ -116,7 +116,7 @@
     </nav>
 
     <section class="home">
-        <div class="text">Projeto integrador 29</div>
+        <div class="text">Sistema de Farmácia</div>
     </section>
 
     <script>
@@ -146,6 +146,23 @@ modeSwitch.addEventListener("click" , () =>{
         
     }
 });
+
+
+function acesso(){
+
+var login = document.getElementById('login').value;
+var senha = document.getElementById('senha').value;
+
+if(login == "admin" && senha == "admin"){
+    alert('Sucesso');
+    location.href = "/financeiro.html";
+}else{
+    alert('Usuario ou senha incorretos');
+}
+
+
+
+}
     </script>
 
 </body>
