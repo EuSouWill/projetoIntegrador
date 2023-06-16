@@ -4,12 +4,10 @@
   <meta charset="UTF-8">
   <title>Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/style.css">
 
   <style>
-    h1,a{
-        text-decoration: none;
-        color: #f1f1f1;
-    }
+   
     body {
       background-color: #f1f1f1;
       font-family: Arial, sans-serif;
@@ -19,12 +17,7 @@
 
     }
     
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
+  
     
     .container {
       display: flex;
@@ -82,8 +75,9 @@
 </head>
 <body>
   <header>
-    <a href="/home.html">
-        <h1>Dashboard</h1>
+    
+        <button class="back-button" onclick="goBack()">Voltar</button>
+
     </a>
     
   </header>
@@ -180,7 +174,9 @@ var profitPieChart = new Chart(document.getElementById("profitPieChart"), {
       }
    }
 });
-    
+function goBack() {
+  window.history.back();
+}
   </script>
 </body>
 </html>

@@ -93,11 +93,14 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="/index.html">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>
                 </li>
+               
+                <button onclick="logout()">Logout</button>
+
 
                 <li class="mode">
                     <div class="sun-moon">
@@ -122,7 +125,7 @@
 
     <footer>
         <div class="footer-content">
-          <p>&copy; 2023 SoftFarma. Todos os direitos reservados.</p>
+          <p>&copy; 2023 wiLLSoftFarma. Todos os direitos reservados.</p>
         </div>
       </footer>
 
@@ -157,18 +160,29 @@ modeSwitch.addEventListener("click" , () =>{
 
 function acesso(){
 
-var login = document.getElementById('login').value;
-var senha = document.getElementById('senha').value;
+    var login = document.getElementById('login').value;
+    var senha = document.getElementById('senha').value;
 
-if(login == "admin" && senha == "admin"){
-    alert('Sucesso');
-    location.href = "/financeiro.html";
-}else{
-    alert('Usuario ou senha incorretos');
+    if(login == "admin" && senha == "admin"){
+        alert('Sucesso');
+        location.href = "/financeiro.html";
+    }else{
+        alert('Usuario ou senha incorretos');
+    }
 }
 
-
-
+function logout() {
+  // Aqui você pode adicionar a lógica para realizar o logout, como limpar os dados da sessão ou redirecionar para a página de login.
+  // Exemplo:
+  // falta ajustar essa parte do logout********
+ 
+  
+  //Limpar os dados da sessão ou do localStorage
+  sessionStorage.clear();
+  localStorage.removeItem('token');
+  
+  // Redirecionar para a página de login
+  window.location.href="/index.html";
 }
     </script>
 </body>
