@@ -1,52 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Página de Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      background-image: url(/imagem/farmacia.avif);
+      background-size: cover;
+    }
 
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
 
+    h2 {
+      text-align: center;
+    }
 
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      width: 95%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
     
+  <div class="container">
+    <h2>Login</h2>
+    <div class="input-group">
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" required>
+    </div>
+    <div class="input-group">
+      <label for="password">Senha:</label>
+      <input type="password" id="password" required onkeydown="handleKeyDown(event)">
+    </div>
+    <button class="btn" onclick="login()">Entrar</button>
+  </div>
+
+  <script>
+    var usuarios = [
+      { username: 'admin', password: 'admin' },
+      { username: 'will', password: '2223' },
+      { username: 'usuario2', password: 'senha2' }
+      // adicione mais usuários aqui
+    ];
+
+    function login() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Verifica se as credenciais correspondem a algum usuário registrado
+      var usuarioEncontrado = usuarios.find(function(usuario) {
+        return usuario.username === username && usuario.password === password;
+      });
+
+      if (usuarioEncontrado) {
+        alert('Login bem-sucedido!');
+        sessionStorage.setItem('isLoggedIn','true');
+        location.href = '/home.html';
+      } else {
+        alert('Nome de usuário ou senha incorretos. Tente novamente.');
+      }
+    }
     
-    <form>
-        
-        <h3>Escola EAD</h3>
-        <h4>Seja bem-vindo!</h4>
-        <input type="text" placeholder="Login" id="login">
-        <input type="password" placeholder="Senha" id="senha">
-        <input type="submit" onclick="logar(); return false">
-      
-        
-
-    </form>
-
-
-    <script>
-
-
-        function logar(){
-
-            var login = document.getElementById('login').value;
-            var senha = document.getElementById('senha').value;
-
-            if(login == "admin" && senha == "admin"){
-                alert('Sucesso');
-                location.href = "/home.html";
-            }else{
-                alert('Usuario ou senha incorretos');
-            }
-
-         
-
-        }
-
-    </script>
-
+    function handleKeyDown(event) {
+      if (event.keyCode === 13) {
+        login();
+      }
+    }
+  </script>
 </body>
 </html>

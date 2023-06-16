@@ -38,9 +38,9 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/vendas.html">
                             <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Painel</span>
+                            <span class="text nav-text">Vendas</span>
                         </a>
                     </li>
 
@@ -95,11 +95,11 @@
                 <li class="">
                     <a href="/index.html">
                         <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
+                        <button onclick="logout()"></button>
                     </a>
                 </li>
                
-                <button onclick="logout()">Logout</button>
+                
 
 
                 <li class="mode">
@@ -171,19 +171,24 @@ function acesso(){
     }
 }
 
+// Função de logout
 function logout() {
-  // Aqui você pode adicionar a lógica para realizar o logout, como limpar os dados da sessão ou redirecionar para a página de login.
-  // Exemplo:
-  // falta ajustar essa parte do logout********
- 
-  
-  //Limpar os dados da sessão ou do localStorage
-  sessionStorage.clear();
-  localStorage.removeItem('token');
-  
-  // Redirecionar para a página de login
-  window.location.href="/index.html";
-}
+            sessionStorage.removeItem('isLoggedIn');
+            alert('Logout realizado com sucesso!');
+            location.href = '/index.html'; // Redireciona para a página de login
+        }
+
+        // Verifica se o usuário está logado na sessão
+        function checkLoggedIn() {
+            var isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            if (isLoggedIn !== 'true') {
+                // Usuário não está logado, redireciona para a página de login
+                location.href = '/index.html';
+            }
+        }
+
+        // Executa a verificação de login ao carregar a página
+        checkLoggedIn();
     </script>
 </body>
 </html>
