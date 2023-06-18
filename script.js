@@ -1,24 +1,55 @@
 // Acesso ao formulário e à lista de vendas
 const salesForm = document.getElementById('sales-form');
 const salesList = document.getElementById('sales-items');
+const totalPriceElement = document.getElementById('total-price');
 
-// Evento de envio do formulário
-salesForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+// Variáveis globais
+let totalPrice = 0.0;
+const salesItems = [];
 
-  // Obter os valores dos campos do formulário
+// Função para registrar a venda
+function registrarVenda(event) {
+  event.preventDefault(); // Evita o envio do formulário
+
+  // Obtém os valores dos campos do formulário
   const medicationName = document.getElementById('medication-name').value;
-  const quantity = document.getElementById('quantity').value;
-  const price = document.getElementById('price').value;
+  const quantity = parseInt(document.getElementById('quantity').value);
+  const price = parseFloat(document.getElementById('price').value);
 
-  // Criar um novo item de venda
-  const saleItem = document.createElement('li');
-  saleItem.className = 'sale-item';
-  saleItem.innerHTML = `<strong>Medicamento:</strong> ${medicationName} | <strong>Quantidade:</strong> ${quantity} | <strong>Preço:</strong> R$ ${price}`;
+  // Calcula o preço total do item
+  const totalItemPrice = quantity * price;
 
-  // Adicionar o item de venda à lista
-  salesList.appendChild(saleItem);
+  // Atualiza o preço total da compra
+  totalPrice += totalItemPrice;
+  totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
 
-  // Limpar os campos do formulário
-  salesForm.reset();
-});
+  // Cria o elemento da lista de vendas
+  const listItem = document.createElement('li');
+  listItem.textContent = `${medicationName} - Quantidade: ${quantity} - Preço Unitário: R$ ${price.toFixed(2)} - Total: R$ ${totalItemPrice.toFixed(2)}`;
+  listItem.className = 'sale-item';
+
+  // Adiciona o elemento à lista de vendas
+  salesList.appendChild(listItem);
+
+  // Limpa os campos do formulário
+  document.getElementById('medication-name').value = '';
+  document.getElementById('quantity').value = '';
+  document.getElementById('price').value = '';
+
+  // Armazena os detalhes da venda
+  const salesItem = {
+    medicationName: medicationName,
+    quantity: quantity,
+    price: price,
+    totalItemPrice: totalItemPrice
+  };
+  salesItems.push(salesItem);
+}
+
+// Adiciona o evento de submit ao formulário
+salesForm.addEventListener('submit', registrarVenda);
+
+// função goBack para retornar a página anterior
+function goBack() {
+    window.history.back();
+  }
