@@ -1,194 +1,182 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="https://kit.fontawesome.com/7708034ae2.css" crossorigin="anonymous">    
-    <!--<title>Dashboard Sidebar Menu</title>--> 
+  <link rel="stylesheet" href="https://kit.fontawesome.com/7708034ae2.css" crossorigin="anonymous">    
+  
 </head>
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                
-                    <img class="round-image" src="/imagem/perfil.jpg" alt="Imagem Redonda">
-                
-
-                <div class="text logo-text">
-                    <span class="name">Software</span>
-                    <span class="profession">SoftFarma</span>
-                </div>
-            </div>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-        <div class="menu-bar">
-            <div class="menu">
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Buscar....">
-                </li>
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="/vendas.html">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Vendas</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="/financeiro.html">
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span class="text nav-text" >Financeiro</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notificações</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="/dash2.html">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
-                            <span class="text nav-text">Disciplinas</span>
-                        </a>
-                    </li>
-                  
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-message-dots icon'></i>
-                            <span class="text nav-text">Chat</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="escrituracao.html">
-                            <i class='bx bxs-pencil icon' ></i> 
-                            <span class="text nav-text">escrituração</span>
-                        </a>
-                    </li>  
-                    
-                    <li class="nav-link">
-                        <a href="/estoque.html">
-                            <i class='bx bx-detail icon' ></i>
-                            <span class="text nav-text">Estoque</span>
-                        </a>
-                    </li>  
-
-                 
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="/index.html">
-                        <i class='bx bx-log-out icon' ></i>
-                        <button onclick="logout()"></button>
-                    </a>
-                </li>
-               
-                
-
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                
-            </div>
+  <nav class="sidebar close">
+    <header>
+      <div class="image-text">
+        <img class="round-image" src="/imagem/perfil.jpg" alt="Imagem Redonda">
+        <div class="text logo-text">
+          <span class="name">Software</span>
+          <span class="profession">SoftFarma</span>
         </div>
+      </div>
+      <i class='bx bx-chevron-right toggle'></i>
+    </header>
+    <div class="menu-bar">
+      <div class="menu">
+        <li class="search-box">
+          <i id="search-icon" class='bx bx-search icon'></i>
+          <input type="text" id="search-input" placeholder="Buscar....">
+        </li>
 
-    </nav>
+        <ul class="menu-links" id="menu-links">
+          <li class="nav-link">
+            <a href="/vendas.html">
+              <i class='bx bx-home-alt icon'></i>
+              <span class="text nav-text">Vendas</span>
+            </a>
+          </li>
 
-    <section class="home">
-        <div class="text">Sistema de Farmácia</div>
-    </section>
+          <li class="nav-link">
+            <a href="/financeiro.html">
+              <i class='bx bx-bar-chart-alt-2 icon'></i>
+              <span class="text nav-text">Financeiro</span>
+            </a>
+          </li>
 
-    <footer>
-        <div class="footer-content">
-          <p>&copy; 2023 wiLLSoftFarma. Todos os direitos reservados.</p>
-        </div>
-      </footer>
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bx-bell icon'></i>
+              <span class="text nav-text">Notificações</span>
+            </a>
+          </li>
 
-    <script>
-        const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+          <li class="nav-link">
+            <a href="/comissoes.html">
+              <i class='bx bx-pie-chart-alt icon'></i>
+              <span class="text nav-text">Comissões</span>
+            </a>
+          </li>
 
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bx-message-dots icon'></i>
+              <span class="text nav-text">Chat</span>
+            </a>
+          </li>
 
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
+          <li class="nav-link">
+            <a href="escrituracao.html">
+              <i class='bx bxs-pencil icon'></i> 
+              <span class="text nav-text">escrituração</span>
+            </a>
+          </li>
 
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
+          <li class="nav-link">
+            <a href="/estoque.html">
+              <i class='bx bx-detail icon'></i>
+              <span class="text nav-text">Estoque</span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
+      <div class="bottom-content">
+        <li class="">
+          <a href="/index.html">
+            <i class='bx bx-log-out icon'></i>
+            <button onclick="logout()"></button>
+          </a>
+        </li>
+        <li class="mode">
+          <div class="sun-moon">
+            <i class='bx bx-moon icon moon'></i>
+            <i class='bx bx-sun icon sun'></i>
+          </div>
+          <span class="mode-text text">Dark mode</span>
+
+          <div class="toggle-switch">
+            <span class="switch"></span>
+          </div>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <section class="home">
+    <div class="text">Sistema de Farmácia</div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2023 wiLLSoftFarma. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.querySelector('body');
+    const sidebar = body.querySelector('nav.sidebar');
+    const toggle = body.querySelector(".toggle");
+    const searchIcon = body.querySelector("#search-icon");
+    const searchInput = body.querySelector("#search-input");
+    const menuLinks = body.querySelector("#menu-links");
+    const modeSwitch = body.querySelector(".toggle-switch");
+    const modeText = body.querySelector(".mode-text");
+
+    toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+    });
+
+    searchIcon.addEventListener("click", () => {
+      sidebar.classList.remove("close");
+      searchInput.focus();
+    });
+
+    searchInput.addEventListener("input", () => {
+      searchItems();
+    });
+
+    modeSwitch.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
         modeText.innerText = "Light mode";
-    }else{
+      } else {
         modeText.innerText = "Dark mode";
-        
-    }
-});
+      }
+    });
 
+    function searchItems() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const items = menuLinks.getElementsByClassName("nav-link");
 
-function acesso(){
-
-    var login = document.getElementById('login').value;
-    var senha = document.getElementById('senha').value;
-
-    if(login == "admin" && senha == "admin"){
-        alert('Sucesso');
-        location.href = "/financeiro.html";
-    }else{
-        alert('Usuario ou senha incorretos');
-    }
-}
-
-// Função de logout
-function logout() {
-            sessionStorage.removeItem('isLoggedIn');
-            alert('Logout realizado com sucesso!');
-            location.href = '/index.html'; // Redireciona para a página de login
+      for (let i = 0; i < items.length; i++) {
+        const text = items[i].textContent.toLowerCase();
+        if (text.includes(searchTerm)) {
+          items[i].style.display = "block";
+        } else {
+          items[i].style.display = "none";
         }
+      }
+    }
 
-        // Verifica se o usuário está logado na sessão
-        function checkLoggedIn() {
-            var isLoggedIn = sessionStorage.getItem('isLoggedIn');
-            if (isLoggedIn !== 'true') {
-                // Usuário não está logado, redireciona para a página de login
-                location.href = '/index.html';
-            }
-        }
+    function logout() {
+      sessionStorage.removeItem('isLoggedIn');
+      alert('Logout realizado com sucesso!');
+      location.href = '/index.html';
+    }
 
-        // Executa a verificação de login ao carregar a página
-        checkLoggedIn();
-    </script>
+    function checkLoggedIn() {
+      var isLoggedIn = sessionStorage.getItem('isLoggedIn');
+      if (isLoggedIn !== 'true') {
+        location.href = '/index.html';
+      }
+    }
+
+    checkLoggedIn();
+  </script>
 </body>
 </html>
