@@ -5,16 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  
+  <!-- Inclusão do arquivo CSS de estilização -->
   <link rel="stylesheet" href="style.css">
   
   <!-- Boxicons CSS -->
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
+  <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://kit.fontawesome.com/7708034ae2.css" crossorigin="anonymous">    
   
 </head>
 <body>
+  <!-- Barra de navegação -->
   <nav class="sidebar close">
     <header>
       <div class="image-text">
@@ -28,11 +30,13 @@
     </header>
     <div class="menu-bar">
       <div class="menu">
+        <!-- Campo de busca -->
         <li class="search-box">
           <i id="search-icon" class='bx bx-search icon'></i>
           <input type="text" id="search-input" placeholder="Buscar....">
         </li>
 
+        <!-- Opções de menu -->
         <ul class="menu-links" id="menu-links">
           <li class="nav-link">
             <a href="/vendas.html">
@@ -72,7 +76,7 @@
           <li class="nav-link">
             <a href="escrituracao.html">
               <i class='bx bxs-pencil icon'></i> 
-              <span class="text nav-text">escrituração</span>
+              <span class="text nav-text">Escrituração</span>
             </a>
           </li>
 
@@ -86,12 +90,14 @@
       </div>
 
       <div class="bottom-content">
+        <!-- Botão de logout -->
         <li class="">
           <a href="/index.html">
             <i class='bx bx-log-out icon'></i>
             <button onclick="logout()"></button>
           </a>
         </li>
+        <!-- Alternância entre modo claro/escuro -->
         <li class="mode">
           <div class="sun-moon">
             <i class='bx bx-moon icon moon'></i>
@@ -107,16 +113,19 @@
     </div>
   </nav>
 
+  <!-- Seção principal -->
   <section class="home">
     <div class="text">Sistema de Farmácia</div>
   </section>
 
+  <!-- Rodapé -->
   <footer>
     <div class="footer-content">
       <p>&copy; 2023 wiLLSoftFarma. Todos os direitos reservados.</p>
     </div>
   </footer>
 
+  <!-- Código JavaScript -->
   <script>
     const body = document.querySelector('body');
     const sidebar = body.querySelector('nav.sidebar');
@@ -127,19 +136,23 @@
     const modeSwitch = body.querySelector(".toggle-switch");
     const modeText = body.querySelector(".mode-text");
 
+    // Evento de clique para abrir/fechar a barra de navegação
     toggle.addEventListener("click", () => {
       sidebar.classList.toggle("close");
     });
 
+    // Evento de clique para abrir a barra de navegação e focar no campo de busca
     searchIcon.addEventListener("click", () => {
       sidebar.classList.remove("close");
       searchInput.focus();
     });
 
+    // Evento de input para filtrar itens do menu de acordo com o termo de busca
     searchInput.addEventListener("input", () => {
       searchItems();
     });
 
+    // Evento de clique para alternar entre modo claro/escuro
     modeSwitch.addEventListener("click", () => {
       body.classList.toggle("dark");
       if (body.classList.contains("dark")) {
@@ -149,6 +162,7 @@
       }
     });
 
+    // Função para filtrar itens do menu de acordo com o termo de busca
     function searchItems() {
       const searchTerm = searchInput.value.toLowerCase();
       const items = menuLinks.getElementsByClassName("nav-link");
@@ -163,12 +177,14 @@
       }
     }
 
+    // Função para realizar logout
     function logout() {
       sessionStorage.removeItem('isLoggedIn');
       alert('Logout realizado com sucesso!');
       location.href = '/index.html';
     }
 
+    // Função para verificar se o usuário está logado
     function checkLoggedIn() {
       var isLoggedIn = sessionStorage.getItem('isLoggedIn');
       if (isLoggedIn !== 'true') {
@@ -176,6 +192,7 @@
       }
     }
 
+    // Verificar o login ao carregar a página
     checkLoggedIn();
   </script>
 </body>
