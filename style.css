@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
     background-color: var(--body-color);
     transition: var(--tran-05);
-
+    
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -78,6 +78,7 @@ body.dark {
     height: 100%;
     width: 250px;
     padding: 10px 14px;
+    padding-bottom: 20px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
     z-index: 100;  
@@ -359,6 +360,7 @@ body.dark .toggle-switch .switch:before {
     margin-top: 20px;
     margin-bottom: 20px;
     text-emphasis-color: black;
+    font-size: 24px;
   }
 
   .back-button {
@@ -373,4 +375,22 @@ body.dark .toggle-switch .switch:before {
   
   .back-button:hover {
     background-color: #4C46B8;
+  }
+
+  .principal {
+    text-align: center;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .text-principal{    
+    padding: 50px;
+    text-align: justify; 
+    max-width: 800px;
+    margin: 0 auto;    
   }

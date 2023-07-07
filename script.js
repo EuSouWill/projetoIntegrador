@@ -53,4 +53,6 @@ salesForm.addEventListener('submit', registrarVenda);
 function goBack() {
     window.history.back();
   }
+
+  
   

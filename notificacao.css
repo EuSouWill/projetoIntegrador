@@ -1,0 +1,57 @@
+body {
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary {
+    margin-top: 20px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2; /* Cor de fundo opcional para o header */
+  }
+  
+  .logo {
+    width: 100%;
+    height: 200px;
+  }
+  
+  h1 {
+    flex: 1; /* Para preencher o espaço restante no header */
+    margin-left: 10px; /* Espaçamento entre a imagem e o texto */
+  }
+  
+  .btn-sm {
+    padding: 0.25rem 0.5rem; /* Ajuste o padding para definir o tamanho desejado */
+    font-size: 0.8rem; /* Ajuste a fonte para o tamanho desejado */
+  }
+  
+  .form-control{
+    color:#495057 ;
+    font-size: 36px;
+    width: 50%;
+  }
+
+  .back-button {
+    background-color: #695CFE;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: auto;
+  }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gerador de Senhas</title>
+  <link rel="stylesheet" href="/notificacao.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+   
+    <header>
+        <button class="back-button" onclick="goBack()">Voltar</button>
+        <h1>
+            <img src="/imagem/logo.jpg" alt="Logo" class="logo">
+        </h1>
+    </header>
+   </div>
+  <div class="container mt-4">
+    <h1>Gerador de Senhas</h1>
+    <div class="form-group">
+      
+      
+    </div>
+    <button id="gerarSenha" class="btn btn-primary">Gerar Senha</button>
+    <div id="senhaGerada" class="mt-4"></div>
+    
+    <hr>
+    
+    <h2>Fila de Atendimento Prioritário</h2>
+    <div>
+      <input type="text" id="clientePrioritario" placeholder="Nome do cliente prioritário" class="form-control">
+      <button id="adicionarPrioritario" class="btn btn-success mt-2">Adicionar à fila</button>
+    </div>
+    <div id="proxPrioritario" class="mt-4"></div>
+    <button id="atenderPrioritario" class="btn btn-primary mt-2">Atender Próximo</button>
+
+    <hr>
+    
+    <h2>Fila de Atendimento Normal</h2>
+    <div>
+      <input type="text" id="clienteNormal" placeholder="Nome do cliente normal" class="form-control">
+      <button id="adicionarNormal" class="btn btn-success mt-2">Adicionar à fila</button>
+    </div>
+    <div id="proxNormal" class="mt-4"></div>
+    <button id="atenderNormal" class="btn btn-primary mt-2">Atender Próximo</button>
+    
+    <hr>
+    
+    <h2>Relatório</h2>
+    <table id="relatorio" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Senha Gerada</th>
+          <th>Nome</th>
+          <th>Hora de Geração</th>
+        </tr>
+      </thead>
+      <tbody id="relatorioCorpo"></tbody>
+    </table>
+    <div class="mini-tela" id="miniTela"></div>
+  </div>
+
+  <script src="notificacao.js"></script>
+</body>
+</html>
