@@ -37,7 +37,10 @@ document.getElementById('atenderPrioritario').addEventListener('click', function
     exibirProximoPrioritario();
     atualizarHoraAtendimento(clienteAtendido);
     exibirProximaSenha();
-    alert('Atendendo cliente prioritário: ' + clienteAtendido);
+    alertaDeSom();
+    setTimeout(function() {
+      alertaDeVoz("Atendendo cliente prioritário: " + clienteAtendido);
+    }, 1000);
   } else {
     alert('Não há clientes prioritários na fila.');
   }
@@ -49,7 +52,10 @@ document.getElementById('atenderNormal').addEventListener('click', function() {
     exibirProximoNormal();
     atualizarHoraAtendimento(clienteAtendido);
     exibirProximaSenha();
-    alert('Atendendo cliente normal: ' + clienteAtendido);
+    alertaDeSom();
+    setTimeout(function() {
+      alertaDeVoz("Atendendo cliente normal: " + clienteAtendido);
+    }, 1000);
   } else {
     alert('Não há clientes normais na fila.');
   }
@@ -114,6 +120,33 @@ function exibirProximaSenha() {
   var proximaSenhaExibicao = proximaSenha.toString().padStart(3, '0');
   document.getElementById('miniTela').textContent = 'Próxima senha: ' + proximaSenhaExibicao;
 }
-function goBack() {
-    window.history.back();
-  }
+
+function adicionarClientePrioritario() {
+  var cliente = document.getElementById("clientePrioritario").value;
+  filaPrioritaria.push(cliente);
+  document.getElementById("clientePrioritario").value = "";
+  exibirProximoPrioritario();
+}
+
+function adicionarClienteNormal() {
+  var cliente = document.getElementById("clienteNormal").value;
+  filaNormal.push(cliente);
+  document.getElementById("clienteNormal").value = "";
+  exibirProximoNormal();
+}
+
+function alertaDeSom() {
+  var audio = new Audio('/sons/simple-notification-trial-152054.mp3');
+  audio.play();
+}
+
+function alertaDeVoz(mensagem) {
+  var message = new SpeechSynthesisUtterance(mensagem);
+  window.speechSynthesis.speak(message);
+}
+
+// Event Listeners
+document.getElementById("adicionarPrioritario").addEventListener("click", adicionarClientePrioritario);
+document.getElementById("adicionarNormal").addEventListener("click", adicionarClienteNormal);
+document.getElementById("atenderPrioritario").addEventListener("click", atenderProximoPrioritario);
+document.getElementById("atenderNormal").addEventListener("click", atenderProximoNormal);
