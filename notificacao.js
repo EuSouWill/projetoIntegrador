@@ -41,6 +41,7 @@ document.getElementById('atenderPrioritario').addEventListener('click', function
     setTimeout(function() {
       alertaDeVoz("Atendendo cliente prioritário: " + clienteAtendido);
     }, 1000);
+    
   } else {
     alert('Não há clientes prioritários na fila.');
   }
@@ -56,6 +57,8 @@ document.getElementById('atenderNormal').addEventListener('click', function() {
     setTimeout(function() {
       alertaDeVoz("Atendendo cliente normal: " + clienteAtendido);
     }, 1000);
+    
+   
   } else {
     alert('Não há clientes normais na fila.');
   }
@@ -86,11 +89,11 @@ function exibirRelatorio() {
     var senhaCell = document.createElement('td');
     senhaCell.textContent = relatorio[i].senha;
     var nomeCell = document.createElement('td');
-    nomeCell.textContent = relatorio[i].nome;
+    nomeCell.textContent = relatorio[i].nome || 'Não atendido';
     var horaGeracaoCell = document.createElement('td');
     horaGeracaoCell.textContent = relatorio[i].horaGeracao;
     var horaAtendimentoCell = document.createElement('td');
-    horaAtendimentoCell.textContent = relatorio[i].horaAtendimento;
+    horaAtendimentoCell.textContent = relatorio[i].horaAtendimento || 'Não atendido';
     row.appendChild(senhaCell);
     row.appendChild(nomeCell);
     row.appendChild(horaGeracaoCell);
@@ -120,33 +123,16 @@ function exibirProximaSenha() {
   var proximaSenhaExibicao = proximaSenha.toString().padStart(3, '0');
   document.getElementById('miniTela').textContent = 'Próxima senha: ' + proximaSenhaExibicao;
 }
+function goBack() {
+    window.history.back();
+  }
 
-function adicionarClientePrioritario() {
-  var cliente = document.getElementById("clientePrioritario").value;
-  filaPrioritaria.push(cliente);
-  document.getElementById("clientePrioritario").value = "";
-  exibirProximoPrioritario();
-}
-
-function adicionarClienteNormal() {
-  var cliente = document.getElementById("clienteNormal").value;
-  filaNormal.push(cliente);
-  document.getElementById("clienteNormal").value = "";
-  exibirProximoNormal();
-}
-
-function alertaDeSom() {
-  var audio = new Audio('/sons/simple-notification-trial-152054.mp3');
-  audio.play();
-}
-
-function alertaDeVoz(mensagem) {
-  var message = new SpeechSynthesisUtterance(mensagem);
-  window.speechSynthesis.speak(message);
-}
-
-// Event Listeners
-document.getElementById("adicionarPrioritario").addEventListener("click", adicionarClientePrioritario);
-document.getElementById("adicionarNormal").addEventListener("click", adicionarClienteNormal);
-document.getElementById("atenderPrioritario").addEventListener("click", atenderProximoPrioritario);
-document.getElementById("atenderNormal").addEventListener("click", atenderProximoNormal);
+  function alertaDeSom() {
+    var audio = new Audio('/sons/simple-notification-trial-152054.mp3');
+    audio.play();
+  }
+  
+  function alertaDeVoz(mensagem) {
+    var message = new SpeechSynthesisUtterance(mensagem);
+    window.speechSynthesis.speak(message);
+  }
