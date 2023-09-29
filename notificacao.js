@@ -1,3 +1,5 @@
+
+
 var proximaSenha = 1;
 var filaPrioritaria = [];
 var filaNormal = [];
@@ -39,7 +41,7 @@ document.getElementById('atenderPrioritario').addEventListener('click', function
     exibirProximaSenha();
     alertaDeSom();
     setTimeout(function() {
-      alertaDeVoz("Atendendo cliente prioritário: " + clienteAtendido);
+      alertaDeVoz("Atendendo cliente prioritário : " + clienteAtendido);
     }, 1000);
     
   } else {
@@ -55,7 +57,7 @@ document.getElementById('atenderNormal').addEventListener('click', function() {
     exibirProximaSenha();
     alertaDeSom();
     setTimeout(function() {
-      alertaDeVoz("Atendendo cliente normal: " + clienteAtendido);
+      alertaDeVoz("Atendendo cliente normal no consultório 1: " + clienteAtendido);
     }, 1000);
     
    
